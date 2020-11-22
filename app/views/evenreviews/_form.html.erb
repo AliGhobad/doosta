@@ -1,0 +1,37 @@
+<%= form_with(model: evenreview, local: true) do |form| %>
+  <% if evenreview.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(evenreview.errors.count, "error") %> prohibited this evenreview from being saved:</h2>
+
+      <ul>
+      <% evenreview.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :event_id %>
+    <%= form.text_field :event_id, id: :evenreview_event_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :evenreview_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :scores %>
+    <%= form.text_field :scores, id: :evenreview_scores %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comments %>
+    <%= form.text_area :comments, id: :evenreview_comments %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

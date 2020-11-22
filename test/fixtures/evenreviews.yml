@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event: one
+  user: one
+  user_type: User
+  scores: MyString
+  comments: MyText
+
+two:
+  event: two
+  user: two
+  user_type: User
+  scores: MyString
+  comments: MyText

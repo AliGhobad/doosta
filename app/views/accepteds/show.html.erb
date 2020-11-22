@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @accepted.event %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @accepted.user %>
+</p>
+
+<%= link_to 'Edit', edit_accepted_path(@accepted) %> |
+<%= link_to 'Back', accepteds_path %>

@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <%= link_to 'Doosta', root_path , class:"navbar-brand" %>
+
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to 'About Us', home_about_path , class:"navbar-brand" %>
+      </li>
+      <li class="Sign Up">
+        <%= link_to 'Sign Up', new_userlog_registration_path , class:"navbar-brand" %>
+      </li>
+      <% if userlog_signed_in? %>
+        <li class="Sign Out">
+          <%= link_to 'Sign Out', destroy_userlog_session_path , method: :delete, class:"navbar-brand" %>
+        </li>
+        <li class="Edit Profile">
+          <%= link_to 'Edit Profile', edit_userlog_registration_path , class:"navbar-brand" %>
+        </li>
+      <% else %>
+        <li class="Sign In">
+          <%= link_to 'Sign In',  userlog_session_path , class:"navbar-brand" %>
+        </li>
+      <% end%>
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Find Something" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>

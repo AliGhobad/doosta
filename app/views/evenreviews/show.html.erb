@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @evenreview.event %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @evenreview.user %>
+</p>
+
+<p>
+  <strong>Scores:</strong>
+  <%= @evenreview.scores %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @evenreview.comments %>
+</p>
+
+<%= link_to 'Edit', edit_evenreview_path(@evenreview) %> |
+<%= link_to 'Back', evenreviews_path %>

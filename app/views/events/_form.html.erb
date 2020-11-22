@@ -1,0 +1,84 @@
+<%= form_with(model: event, local: true) do |form| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= current_userlog.email %>
+  <div class="field">
+    <%= form.label :event_name %>
+    <%= form.text_field :event_name, id: :event_event_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :event_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_time %>
+    <%= form.datetime_select :start_time, id: :event_start_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_time %>
+    <%= form.datetime_select :end_time, id: :event_end_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :event_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :photos %>
+    <%= form.text_area :photos, id: :event_photos %>
+  </div>
+
+  <div class="field">
+    <%= form.label :links_to_share %>
+    <%= form.text_field :links_to_share, id: :event_links_to_share %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fees %>
+    <%= form.number_field :fees, id: :event_fees %>
+  </div>
+
+  <div class="field">
+    <%= form.label :available %>
+    <%= form.number_field :available, id: :event_available %>
+  </div>
+
+  <div class="field">
+    <%= form.label :capacity %>
+    <%= form.number_field :capacity, id: :event_capacity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id, value: current_userlog.id %>
+  </div>
+
+  <div class="field">
+    <%= form.number_field :userlog_id, id: :event_userlog_id, value: current_userlog.id, type: :hidden %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.text_field :category, id: :event_category %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Accepteds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @accepteds.each do |accepted| %>
+      <tr>
+        <td><%= accepted.event %></td>
+        <td><%= accepted.user %></td>
+        <td><%= link_to 'Show', accepted %></td>
+        <td><%= link_to 'Edit', edit_accepted_path(accepted) %></td>
+        <td><%= link_to 'Destroy', accepted, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Accepted', new_accepted_path %>
