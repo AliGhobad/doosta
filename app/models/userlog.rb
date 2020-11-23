@@ -4,7 +4,7 @@ class Userlog < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-         has_one :users
+         has_many :users
          has_many :events
 
 end

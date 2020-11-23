@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_userlog!
+  before_action :correct_userlogu, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -14,7 +16,8 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+    #@user = User.new
+    @user = current_userlog.users.build
   end
 
   # GET /users/1/edit
@@ -24,7 +27,8 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    #@user = User.new(user_params)
+    @user = current_userlog.users.build(user_params)
 
     respond_to do |format|
       if @user.save
@@ -60,6 +64,14 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def correct_userlogu
+    @user = current_userlog.users.find_by(id: params[:id])
+    redirect_to users_path, notice: "Not Authorized to see" if @user.nil?
+
+  end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
