@@ -18,6 +18,11 @@
         <li class="Edit Profile">
           <%= link_to 'Edit Profile', edit_userlog_registration_path , class:"navbar-brand" %>
         </li>
+        <li class="Post an Event">
+          <%= link_to 'Post an Event', new_event_path , class:"navbar-brand" %>
+        </li>
+        <span class="badge badge-primary">  <%= current_userlog.name %> </span>
+        </li>
       <% else %>
       <li class="Sign Up">
         <%= link_to 'Sign Up', new_userlog_registration_path , class:"navbar-brand" %>
