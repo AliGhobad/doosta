@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'profile/index'
+
   devise_for :userlogs
   resources :userreviews
   resources :evenreviews

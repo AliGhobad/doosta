@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_userlog!
-  before_action :correct_userlogu, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_userlog!, except: [:index, :show] 
+  before_action :correct_userlogu, only: [:edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -70,7 +70,6 @@ class UsersController < ApplicationController
     redirect_to users_path, notice: "Not Authorized to see" if @user.nil?
 
   end
-
 
 
   private

@@ -33,7 +33,8 @@
         <td><%= event.fees %></td>
         <td><%= event.available %></td>
         <td><%= event.capacity %></td>
-        <td><%= event.user %></td>
+        <td><%= event.user.inspect %></td>
+        <td><%= event.userlog.inspect %></td>
         <td><%= event.category %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
